@@ -1,0 +1,29 @@
+@use './_global.sass' as v
+:root
+  --color-text: #111
+  --color-light: #f4f1f0
+  --color-primary: #ca9e65
+  --color-accent: #b09582
+  --color-error: #ff1744
+  --text-title: "AngleciaPro"
+
+.img
+  &-holder
+    position: relative
+    width: 100%
+    overflow: hidden
+    &:before
+      content: ''
+      display: block
+  &--portrait
+    &:before
+      padding-top: 125%
+  &--landscape
+    &:before
+      padding-top: 57%
+  &--full
+    &:before
+      padding-top: 100%
+  &--cover
+    @extend .tf
+    object-fit: cover
