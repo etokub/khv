@@ -184,6 +184,21 @@
             margin-top: 1rem
 
   &-projects
+    position: relative
+    .section-name
+      @extend .absolute
+      top: 0
+      left: 0
+      width: 5%
+      height: 100vh
+      display: flex
+      align-items: center
+      justify-content: flex-end
+      span
+        display: block
+        transform: rotate(-90deg)
+        transform-origin: right
+        opacity: .65
     @media screen and (max-width: 810px)
       padding: 0 0 10vh 0
       background-color: #f2f2f2

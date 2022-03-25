@@ -90,7 +90,7 @@ body {
   position: relative;
 }
 
-.absolute, .home-activity .section-name, .img--cover, .tf {
+.absolute, .home-projects .section-name, .home-activity .section-name, .img--cover, .tf {
   position: absolute;
 }
 
@@ -292,7 +292,7 @@ body {
   position: relative;
 }
 
-.absolute, .home-activity .section-name, .tf, .img--cover {
+.absolute, .home-projects .section-name, .home-activity .section-name, .tf, .img--cover {
   position: absolute;
 }
 
@@ -487,7 +487,7 @@ body {
   position: relative;
 }
 
-.absolute, .home-activity .section-name, .tf, .img--cover {
+.absolute, .home-activity .section-name, .home-projects .section-name, .tf, .img--cover {
   position: absolute;
 }
 
@@ -946,6 +946,24 @@ p {
 }
 .home-activity__list li + li {
   margin-top: 1rem;
+}
+.home-projects {
+  position: relative;
+}
+.home-projects .section-name {
+  top: 0;
+  left: 0;
+  width: 5%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.home-projects .section-name span {
+  display: block;
+  transform: rotate(-90deg);
+  transform-origin: right;
+  opacity: 0.65;
 }
 @media screen and (max-width: 810px) {
   .home-projects {
