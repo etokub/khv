@@ -90,7 +90,7 @@ body {
   position: relative;
 }
 
-.absolute, .img--cover, .tf {
+.absolute, .home-activity .section-name, .img--cover, .tf {
   position: absolute;
 }
 
@@ -164,7 +164,7 @@ body {
   }
 }
 .h4 {
-  font-size: 200%;
+  font-size: 175%;
 }
 
 @media screen and (max-width: 810px) {
@@ -292,7 +292,7 @@ body {
   position: relative;
 }
 
-.absolute, .tf, .img--cover {
+.absolute, .home-activity .section-name, .tf, .img--cover {
   position: absolute;
 }
 
@@ -362,7 +362,7 @@ body {
   }
 }
 .h4 {
-  font-size: 200%;
+  font-size: 175%;
 }
 @media screen and (max-width: 810px) {
   .h4 {
@@ -487,7 +487,7 @@ body {
   position: relative;
 }
 
-.absolute, .tf, .img--cover {
+.absolute, .home-activity .section-name, .tf, .img--cover {
   position: absolute;
 }
 
@@ -561,7 +561,7 @@ body {
   }
 }
 .h4 {
-  font-size: 200%;
+  font-size: 175%;
 }
 
 @media screen and (max-width: 810px) {
@@ -795,7 +795,23 @@ p {
   }
 }
 .home-activity {
+  position: relative;
   padding: 10vh 0;
+}
+.home-activity .section-name {
+  top: 0;
+  left: 0;
+  width: 5%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.home-activity .section-name span {
+  display: block;
+  transform: rotate(-90deg);
+  transform-origin: right;
+  opacity: 0.65;
 }
 @media screen and (max-width: 810px) {
   .home-activity {
@@ -963,7 +979,6 @@ p {
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    text-align: right;
   }
 }
 .home-projects__item-media .img-holder {
@@ -993,7 +1008,7 @@ p {
 }
 @media screen and (min-width: 810px) {
   .home-projects__item-content .text {
-    width: 500px;
+    width: 480px;
   }
 }
 @media screen and (max-width: 810px) {
@@ -1001,6 +1016,28 @@ p {
     padding-top: 2.5rem;
     max-width: 90%;
   }
+}
+.home-partners {
+  padding: 15vh 0%;
+  background-color: #E7EEF3;
+}
+@media screen and (max-width: 810px) {
+  .home-partners {
+    padding: 10vh 0;
+  }
+}
+.home-partners__inner {
+  padding: 0 5%;
+}
+.home-partners__title {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+.home-partners .node-marquee span {
+  margin: 0 2rem;
+}
+.home-partners .node-marquee span svg {
+  width: 5rem;
 }
 .home-numbers {
   padding: 15vh 0%;
@@ -1016,13 +1053,12 @@ p {
 }
 .home-numbers__title p {
   max-width: 35ch;
-  margin: 0 auto;
   text-align: justify;
 }
 .home-numbers__items {
   grid-template-columns: 41.5% 40.03% 18.47%;
   grid-template-rows: 1fr 1fr;
-  margin-top: 10rem;
+  margin-top: 2.5rem;
 }
 @media screen and (max-width: 810px) {
   .home-numbers__items {

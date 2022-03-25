@@ -88,7 +88,22 @@
           font-size: .75rem
 
   &-activity
+    position: relative
     padding: 10vh 0
+    .section-name
+      @extend .absolute
+      top: 0
+      left: 0
+      width: 5%
+      height: 100vh
+      display: flex
+      align-items: center
+      justify-content: flex-end
+      span
+        display: block
+        transform: rotate(-90deg)
+        transform-origin: right
+        opacity: .65
     @media screen and (max-width: 810px)
       padding: 2.5rem 0 10vh
     &__inner
@@ -189,7 +204,6 @@
           flex-direction: column-reverse
           justify-content: center
           align-items: center
-          text-align: right
         .img-holder
           width: 50%
           @media screen and (max-width: 810px)
@@ -207,11 +221,25 @@
             margin: 0 auto
             text-align: justify
             @media screen and (min-width: 810px)
-              width: 500px
+              width: 480px
             @media screen and (max-width: 810px)
               padding-top: 2.5rem
               max-width: 90%
-
+  &-partners
+    padding: 15vh 0%
+    background-color: #E7EEF3
+    @media screen and (max-width: 810px)
+      padding: 10vh 0
+    &__inner
+      padding: 0 5%
+    &__title
+      margin-bottom: 2.5rem
+      text-align: center
+    .node-marquee
+      span
+        margin: 0 2rem
+        svg
+          width: 5rem
   &-numbers
     padding: 15vh 0%
     background-color: #E7EEF3
@@ -222,13 +250,12 @@
     &__title
       p
         max-width: 35ch
-        margin: 0 auto
         text-align: justify
     &__items
       @extend .grid
       grid-template-columns: 41.5% 40.03% 18.47%
       grid-template-rows: 1fr 1fr
-      margin-top: 10rem
+      margin-top: 2.5rem
       @media screen and (max-width: 810px)
         grid-template-columns: 1fr 1fr
         grid-template-rows: 1fr 1fr 1fr
