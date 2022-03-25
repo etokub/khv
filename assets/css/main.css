@@ -164,7 +164,7 @@ body {
   }
 }
 .h4 {
-  font-size: 175%;
+  font-size: 125%;
 }
 
 @media screen and (max-width: 810px) {
@@ -362,7 +362,7 @@ body {
   }
 }
 .h4 {
-  font-size: 175%;
+  font-size: 125%;
 }
 @media screen and (max-width: 810px) {
   .h4 {
@@ -561,7 +561,7 @@ body {
   }
 }
 .h4 {
-  font-size: 175%;
+  font-size: 125%;
 }
 
 @media screen and (max-width: 810px) {
@@ -707,7 +707,7 @@ p {
   z-index: 4;
 }
 .home-hero__el-title:nth-child(1) {
-  grid-column: 2/9;
+  grid-column: 2/13;
 }
 @media screen and (min-width: 810px) {
   .home-hero__el-title:nth-child(1) {
@@ -729,7 +729,7 @@ p {
   }
 }
 .home-hero__el-descr {
-  grid-column: 14/20;
+  grid-column: 12/20;
   align-self: center;
 }
 @media screen and (min-width: 810px) {
@@ -744,7 +744,7 @@ p {
   }
 }
 .home-hero__el-descr p {
-  max-width: 42ch;
+  max-width: 30ch;
 }
 .home-hero__el-btns {
   grid-column: 2/20;
@@ -851,7 +851,7 @@ p {
 }
 @media screen and (min-width: 810px) {
   .home-activity__el:nth-child(1) {
-    grid-column: 11/20;
+    grid-column: 13/20;
     grid-row: 1/2;
   }
 }
