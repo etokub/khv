@@ -7,6 +7,10 @@
     height: 10vh
     padding: 0 2.5rem
     z-index: 10
+    @media screen and (max-width: 810px)
+      position: absolute
+      height: 70px
+      padding: 0 5%
     &--in
       @extend .grid-20
       height: 100%
@@ -15,14 +19,21 @@
       padding: .5rem
       svg
         height: 8vh
+        max-height: 90%
+        fill:#123244
+        @media screen and (max-width: 810px)
+          max-height: 80%
+
     &-nav
       @extend .grid
       align-self: center
       grid-column: 7/15
+      @media screen and (max-width: 810px)
+        display: none
       &__list
         @extend .flex
         justify-content: center
         &-item
         li
           + li
-            margin-left: 2rem
+              margin-left: 2rem

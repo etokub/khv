@@ -3,12 +3,26 @@
 .home
   &-hero
     position: relative
+    .section-name
+      @extend .absolute
+      top: 0
+      left: 0
+      width: 5%
+      height: 100vh
+      display: flex
+      align-items: center
+      justify-content: flex-end
+      z-index: 3
+      span
+        display: block
+        transform: rotate(-90deg)
+        transform-origin: right
+        opacity: .65
     &__inner
       position: relative
       @extend .grid-20
       @media screen and (min-width: 810px)
-        grid-template-rows: 20vh auto auto 1fr 1fr 1fr
-        grid-column-gap: 2.5rem
+        grid-template-rows: 15vh auto auto  auto 1fr 1fr 1fr
         // height: 100vh
       @media screen and (max-width: 810px)
         grid-template-rows: auto
@@ -25,71 +39,91 @@
         @media screen and (min-width: 810px)
           position: relative
           grid-column: 1/21
-          grid-row: 1/6
+          grid-row: 1/7
     &__el
       position: relative
       z-index: 4
       &-title
         &:nth-child(1)
-          grid-column: 2/13
           @media screen and (min-width: 810px)
+            grid-column: 3/20
             grid-row: 2/3
+            justify-self: end
           // @media screen and (min-width: 810px)
           //   text-align: right
           @media screen and (max-width: 810px)
             grid-column: 2/20
         &:nth-child(2)
           grid-column: 2/20
-          justify-self: center
           @media screen and (min-width: 810px)
             grid-row: 3/4
+            justify-self: end
+        &:nth-child(3)
+          @media screen and (min-width: 810px)
+            grid-row: 4/5
+            grid-column: 12/20
+            justify-self: end
+          @media screen and (max-width: 810px)
+            grid-row: 7/8
+            grid-column: 2/20
       &-descr
-        grid-column: 12/20
-        align-self: center
+        grid-column: 3/8
+        // align-self: center
         @media screen and (min-width: 810px)
-          grid-row: 2/3
+          grid-row: 6/7
         @media screen and (max-width: 810px)
           grid-column: 2/20
           margin: 1.5rem 0
-        p
-          max-width: 30ch
-      &-btns
-        grid-column: 2/20
-        justify-self: center
-        align-self: top
+      &-banner
+        grid-column: 1/20
+        grid-row: 4/5
         @media screen and (min-width: 810px)
-          grid-row: 5/6
+          display: block
+          position: relative
+          grid-column: 1/11
+          grid-row: 2/6
+          z-index: 2
+        .img-holder
+          &:before
+            @media screen and (max-width: 810px) and (orientation: portrait)
+              padding-top: 50%
       &-media
         position: relative
-        grid-column: 5/17
-        z-index: 3
+        grid-column: 7/21
         @media screen and (min-width: 810px)
-          grid-row: 4/7
-          margin-top: -5rem
+          grid-row: 5/8
+          // margin-top: -5rem
         @media screen and (max-width: 810px)
-          grid-column: 1/21
+          grid-column: 2/21
+          margin-top: -.75rem
         .img-holder
           // width: 30vw
           // max-height: 75vh
+          border-radius: 40vh 0 0 40vh
           @media screen and (max-width: 810px) and (orientation: portrait)
-            min-height:  62.5vw
+            border-radius: 30vh 0 0 30vh
+          &:before
+            @media screen and (max-width: 810px) and (orientation: portrait)
+              padding-top: 52.5%
+        .img--cover
+          &:nth-child(1)
+            opacity: 1
       &-extra
         display: none
         svg
-          transform: rotate(90deg)
-          transform-origin: center
+          // transform: rotate(90deg)
+          // transform-origin: center
         @media screen and (min-width: 811px)
           display: block
           grid-column: 17/21
-          grid-row: 5/6
+          grid-row: 6/7
           align-self: center
           justify-self: center
           // justify-self: center
-          font-size: .75rem
 
   &-activity
     position: relative
-    padding: 10vh 0
+    padding: 15vh 0
     .section-name
       @extend .absolute
       top: 0
@@ -105,81 +139,92 @@
         transform-origin: right
         opacity: .65
     @media screen and (max-width: 810px)
-      padding: 2.5rem 0 10vh
+      padding: 2.5rem 0
     &__inner
       @extend .grid-20
-      padding: 0 20%
-      @media screen and (max-width: 810px)
-        grid-row-gap: 5rem
+      padding: 0 10%
       @media screen and (max-width: 1280px)
         padding: 0 10%
       @media screen and (max-width: 810px)
+        grid-row-gap: 2.5rem
         padding: 0 5%
+      @media screen and (min-width: 810px)
+        grid-row-gap: 5rem
     &__el
+      position: relative
+      display: grid
+      place-content: space-between
+      // svg
+      //   position: absolute
+      //   left: 50%
+      //   top: 50%
+      //   transform: translate(-50%,-50%)
+      //   height: 40vw
+      //   width: 40vw
+      //   rect
+      //     fill: none
+      //     width: calc(100% - 2px)
+      //     height: calc(100% - 2px)
+      //     transform-origin: 50% 50%
+      //     stroke: transparent
+      //     opacity: 0
+      //     stroke-width: 1.25
+      //     stroke-dasharray: 1
+      //     stroke-dashoffset: 2
+      //     rx: 20vw
+      //     ry: 20vw
+      //     +
+      //       rect
+      //         stroke-dashoffset: 0
+      //         stroke: #222
+      //         opacity: .065
+      //         transition-duration: .4s
+      //         transition-timing-function: cubic-bezier(.25,.74,.22,.99)
+      //         transition: stroke-dashoffset 1.6s cubic-bezier(.25,.74,.22,.99)
       @media screen and (max-width: 810px)
         grid-column: 1/21
       &:nth-child(1)
         @media screen and (min-width: 810px)
-          margin-bottom: 2.5rem
-        p
-          max-width: 500px
-        @media screen and (min-width: 810px)
-          grid-column: 13/20
           grid-row: 1/2
+          grid-column: 3/19
       &:nth-child(2)
         @media screen and (min-width: 810px)
-          grid-column: 1/10
-          grid-row: 2/4
+          grid-row: 1/2
+          grid-column: 15/20
+          align-self: end
       &:nth-child(3)
         @media screen and (min-width: 810px)
-          grid-column: 13/21
-          grid-row: 5/7
+          grid-column: 5/11
+          grid-row: 2/4
       &:nth-child(4)
+        @media screen and (min-width: 810px)
+          grid-column: 12/18
+          grid-row: 2/4
+      &:nth-child(5)
         @media screen and (min-width: 810px)
           grid-column: 2/11
           grid-row: 8/9
       &-title
         position: relative
         margin-bottom: 2.5rem
-        @media screen and (min-width: 1280px)
-          margin-left: -2.5vw
         @media screen and (max-width: 810px)
           border-bottom: 1px solid #dbd8d8
           padding-bottom: .75rem
           margin-bottom: 1.25rem
 
-    &__line
-      @media screen and (max-width: 810px)
-        display: none
-      svg
-        aspect-ratio: 5/5
-        @media screen and (min-width: 810px)
-          width: 15rem
-        @media screen and (max-width: 560px)
-          width: 7.5rem
-      &.--right
-        @media screen and (min-width: 810px)
-          grid-column: 11/20
-          grid-row: 3/5
-        @media screen and (max-width: 810px)
-          grid-row: 3/4
-        svg
-          fill: #D3450C
-      &.--left
-        @media screen and (min-width: 810px)
-          grid-column: 2/11
-          grid-row: 6/8
-          justify-self: end
-        @media screen and (max-width: 810px)
-          grid-row: 5/6
-        svg
-          fill: #00617E
     &__list
       margin-bottom: 2.5rem
       li
-        font-size: 125%
-        opacity: .65
+        position: relative
         max-width: 40ch
+        // &:before
+        //   content: '✳'
+        //   position: absolute
+        //   top: 50%
+        //   transform: translateY(-50%)
+        //   left: 0
+        //   border-radius: 50%
+        //   font-size: .65rem
         + li
             margin-top: 1rem
 
@@ -200,7 +245,7 @@
         transform-origin: right
         opacity: .65
     @media screen and (max-width: 810px)
-      padding: 0 0 10vh 0
+      padding: 2.5rem 0
       background-color: #f2f2f2
     &__item
       display: grid
@@ -220,14 +265,18 @@
           justify-content: center
           align-items: center
         .img-holder
-          width: 50%
+          width: 60%
+          border-radius: 600px 600px 0 0
           @media screen and (max-width: 810px)
-            width: 100%
-            max-height: 62.5vw
+            width: 95%
+            border-radius: 0 30vh 30vh 0
+          &::before
+            @media screen and (max-width: 810px)
+              padding-top: 50%
       &-content
+        display: grid
         background-color: #f2f2f2
         @media screen and (min-width: 810px)
-          display: grid
           grid-template-rows: 70% 30%
         .text
             display: grid
@@ -240,42 +289,71 @@
             @media screen and (max-width: 810px)
               padding-top: 2.5rem
               max-width: 90%
+              grid-row: 2
+            .title
+              @media screen and (min-width: 810px)
+                margin-bottom: 5rem
+                text-align: left
+              @media screen and (max-width: 810px)
+                margin-bottom: 2.5rem
+        .img
+          @media screen and (max-width: 810px)
+            grid-row: 1
+            width: 95%
+            margin-left: 5%
+            margin-top: -1.5rem
+            z-index: 3
+          &:before
+            content: ''
+            display: block
+            @media screen and (max-width: 810px)
+              padding-top: 52%
+          .img--cover
+            @media screen and (max-width: 810px)
+              border-radius: 30vh 0 0 30vh
+
+
+  
   &-partners
     padding: 15vh 0%
-    background-color: #E7EEF3
+    background-color: #F9F2ED
     @media screen and (max-width: 810px)
-      padding: 10vh 0
+      padding: 2.5rem 0
     &__inner
       padding: 0 5%
     &__title
       margin-bottom: 2.5rem
       text-align: center
-    .node-marquee
-      span
-        margin: 0 2rem
-        svg
-          width: 5rem
+ 
   &-numbers
-    padding: 15vh 0%
+    padding: 15vh 0 5rem 0
     background-color: #E7EEF3
     @media screen and (max-width: 810px)
-      padding: 10vh 0
+      padding: 2.5rem 0
     &__inner
-      padding: 0 5%
+      padding: 0 10%
+      @media screen and (max-width: 810px)
+        padding: 0 5%
+      .h2
+        margin-bottom: 5rem
+        @media screen and (max-width: 810px)
+          margin-bottom: 2.5rem
     &__title
       p
         max-width: 35ch
         text-align: justify
     &__items
       @extend .grid
-      grid-template-columns: 41.5% 40.03% 18.47%
-      grid-template-rows: 1fr 1fr
-      margin-top: 2.5rem
+      @media screen and (min-width: 810px)
+        grid-template-columns: 41.5% 40.03% 18.47%
+        grid-template-rows: 1fr 1fr
+        margin: 2.5rem 0 5rem 0
       @media screen and (max-width: 810px)
         grid-template-columns: 1fr 1fr
         grid-template-rows: 1fr 1fr 1fr
         grid-gap: 2.5rem
-        margin-top: 5rem
+        margin-bottom: 2.5rem
+
     &__item
       font-weight: 300
       .num
@@ -310,7 +388,25 @@
           grid-column: 3
           grid-row: 2
         
-
+.node-marquee
+  margin: 2.5rem 0 0 0
+  svg
+    position: relative
+    width: 100%
+  .item
+    position: relative
+    display: inline-block
+    margin: 0 1rem
+    width: 300px
+    @media screen and (max-width: 810px)
+      width: 200px
+      height: 200px
+    &::after
+      content: ''
+      @extend .tf
+      border-radius: 50%
+      background-color: #fff
+      z-index: -1
 
   // &-activity
   //   position: relative
@@ -456,4 +552,6 @@
   //         .home-activity__items-el__title
   //           border: none
 
-          
+.footer
+   &__inner
+      padding: 5rem 10%
