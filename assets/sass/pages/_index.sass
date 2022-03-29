@@ -22,7 +22,7 @@
       position: relative
       @extend .grid-20
       @media screen and (min-width: 810px)
-        grid-template-rows: 15vh auto auto  auto 1fr 1fr 1fr
+        grid-template-rows: calc(10vh + 2.5rem) auto auto  auto 1fr 1fr 1fr
         // height: 100vh
       @media screen and (max-width: 810px)
         grid-template-rows: auto
@@ -108,20 +108,8 @@
         .img--cover
           &:nth-child(1)
             opacity: 1
-      &-extra
-        display: none
-        svg
-          // transform: rotate(90deg)
-          // transform-origin: center
-        @media screen and (min-width: 811px)
-          display: block
-          grid-column: 17/21
-          grid-row: 6/7
-          align-self: center
-          justify-self: center
-          // justify-self: center
 
-  &-activity
+  &-about
     position: relative
     padding: 15vh 0
     .section-name
@@ -186,11 +174,11 @@
       &:nth-child(1)
         @media screen and (min-width: 810px)
           grid-row: 1/2
-          grid-column: 3/19
+          grid-column: 2/14
       &:nth-child(2)
         @media screen and (min-width: 810px)
           grid-row: 1/2
-          grid-column: 15/20
+          grid-column: 14/20
           align-self: end
       &:nth-child(3)
         @media screen and (min-width: 810px)
@@ -266,7 +254,6 @@
           align-items: center
         .img-holder
           width: 60%
-          border-radius: 600px 600px 0 0
           @media screen and (max-width: 810px)
             width: 95%
             border-radius: 0 30vh 30vh 0
@@ -325,8 +312,8 @@
       margin-bottom: 2.5rem
       text-align: center
  
-  &-numbers
-    padding: 15vh 0 5rem 0
+  &-activity
+    padding: 15vh 0 2.5rem 0
     background-color: #E7EEF3
     @media screen and (max-width: 810px)
       padding: 2.5rem 0
@@ -352,7 +339,6 @@
         grid-template-columns: 1fr 1fr
         grid-template-rows: 1fr 1fr 1fr
         grid-gap: 2.5rem
-        margin-bottom: 2.5rem
 
     &__item
       font-weight: 300
@@ -387,9 +373,23 @@
         @media screen and (min-width: 810px)
           grid-column: 3
           grid-row: 2
-        
+
+.gallery
+  position: relative
+  &:before
+    content: ''
+    @extend .absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 75%
+    z-index: 0
+    background-color: #E7EEF3
+     
 .node-marquee
-  margin: 2.5rem 0 0 0
+  margin: 5rem 0 2.5rem 0
+  @media screen and (max-width: 810px)
+    margin: 2.5rem 0 2.5rem 0
   svg
     position: relative
     width: 100%
@@ -552,6 +552,138 @@
   //         .home-activity__items-el__title
   //           border: none
 
+.action
+  &__inner
+    display: flex
+    justify-content: center
+    margin: 10vh 0
+    padding:0 5% 10vh 5%
+    border-bottom: 1px solid hsla(0,0%,0%, .1)
+    @media screen and (max-width: 810px)
+      padding-top: 2.5rem
+  &__el
+    &-title
+      margin-bottom: 2.5rem
+    &-txt
+      margin-bottom: 2.5rem
+      @media screen and (min-width: 810px)
+        max-width: 40ch
+        margin: 0 auto
+        margin-bottom: 5rem
+
+.team
+  margin: 10vh 0 15vh 0
+  overflow-x: hidden
+  @media screen and (max-width: 810px)
+    padding: 2.5rem 0
+  &__inner
+    @extend .grid-20
+    grid-column-gap: 2.5rem
+  &__el
+    &:nth-child(1)
+      grid-row: 1/2
+      @media screen and (max-width: 810px)
+        grid-column: 2/20
+      @media screen and (min-width: 810px)
+        grid-column: 3/11
+    &:nth-child(2)
+      @media screen and (max-width: 810px)
+        grid-column: 2/20
+        grid-row: 3/4
+        margin-top: 2.5rem
+      @media screen and (min-width: 810px)
+        align-self: end
+        justify-self: center
+        grid-column: 11/16
+        grid-row: 1/2
+    &:nth-child(3)
+      overflow: hidden
+      grid-column: 1/21
+      @media screen and (max-width: 810px)
+        grid-row: 2/3
+  &-carousel
+    margin-top: 2.5rem
+    &__nav
+      &-prev,
+      &-next
+        display: inline-block
+        button
+          padding: .5rem 1rem
+          &.swiper-button-disabled
+            opacity: .5
+            pointer-events: none
+      &-prev
+        button
+          transform: rotate(-180deg)
+    .swiper-slide
+      @media screen and (max-width: 810px)
+        padding-left: 5vw
+      .media
+        @extend .relative
+      &.lg, &.sm, &.md
+        width: 72%
+        min-width: 72vw
+        @media screen and (min-width: 810px)
+          width: 50%
+          min-width: 50vw
+        .inner
+          width: 72vw
+          @media screen and (min-width: 810px)
+            width: 50vw
+        .media
+          height: 90.76744vw
+          @media screen and (min-width: 810px)
+            height: 58.13953vw
+      
+      &.lg
+        @media screen and (min-width: 1280px)
+          width: 30%
+          min-width: 47.3vh
+        .inner
+          @media screen and (min-width: 1280px)
+            width: 47.3vh
+        .media
+          @media screen and (min-width: 1280px)
+            height: 55vh
+      &.sm
+        @media screen and (min-width: 1280px)
+          width: 20%
+          min-width: 29.7vh
+        .inner
+          @media screen and (min-width: 1280px)
+            width: 29.7vh
+        .media
+          @media screen and (min-width: 1280px)
+            height: 45vh
+            width: 29.7vh
+      &.md
+        @media screen and (min-width: 1280px)
+          width: 25%
+          min-width: 40vh
+        .inner
+          @media screen and (min-width: 1280px)
+            width: 40vh
+        .media
+          @media screen and (min-width: 1280px)
+            height: 40vh
+            width: 40vh
+      .info
+        margin-top: 1rem
+        &-position
+          margin-top: 1rem
+        @media screen and (max-width: 810px)
+          padding-left: 5%
+      
+      
 .footer
-   &__inner
-      padding: 5rem 10%
+  &__inner
+    padding: 0rem 0%
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+  &-col
+    padding: 15vh 0
+    text-align: center
+    border-bottom: 1px solid hsla(0,0%,0%, .1)
+    + .footer-col
+      border-left: 1px solid hsla(0,0%,0%, .1)
+

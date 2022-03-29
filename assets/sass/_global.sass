@@ -17,9 +17,12 @@
   &--portrait
     &:before
       padding-top: 128%
-  &--landscape
+  &--h-4-3
     &:before
-      padding-top: 62.5%
+      padding-top: 70%
+  &--h-16-9
+    &:before
+      padding-top: 56.25%
   &--full
     &:before
       padding-top: 100%
@@ -173,9 +176,48 @@ p
 
 .btn
   position: relative
-  border-radius: 50%
   color: #282828
-  font-weight: bold
+  .inner
+    position: relative
+    z-index: 2
+  &--circle
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 5%
+    background-color: #E7EEF3
+    border-radius: 50%
+    margin: 1rem
+    z-index: 3
+    .inner
+      &:before
+        content: ''
+        position: absolute
+        bottom: 100%
+        right: 100%
+        width: .75rem
+        height: .75rem
+        border-radius: 50%
+        background-color: #000
+    &:after, &:before
+      content: ''
+      @extend .tf
+      border-radius: 50%
+      transition: transform 800ms cubic-bezier(0.19, 1, 0.22, 1)
+      z-index: 1
+    &:after
+      background-color: #E7EEF3
+    &:before
+      background-color: #fff
+    &:hover
+      &::after
+        transform: scale(.965)
+      &::before
+        transform: scale(.985)
+    &.--lg
+      width: 25vw
+      height: 25vw
   &--link
     height: 60px
     padding: 0 2.5rem
