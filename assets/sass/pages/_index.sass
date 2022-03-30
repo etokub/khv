@@ -254,6 +254,7 @@
           align-items: center
         .img-holder
           width: 60%
+          border-radius: 1rem
           @media screen and (max-width: 810px)
             width: 95%
             border-radius: 0 30vh 30vh 0
@@ -385,6 +386,9 @@
     height: 75%
     z-index: 0
     background-color: #E7EEF3
+  &-carousel
+    .img-holder
+      border-radius: 1rem
      
 .node-marquee
   margin: 5rem 0 2.5rem 0
@@ -555,12 +559,13 @@
 .action
   &__inner
     display: flex
+    flex-wrap: wrap
     justify-content: center
-    margin: 10vh 0
-    padding:0 5% 10vh 5%
+    margin: 2.5rem 0
+    padding: 0 5%
     border-bottom: 1px solid hsla(0,0%,0%, .1)
-    @media screen and (max-width: 810px)
-      padding-top: 2.5rem
+    // @media screen and (max-width: 810px)
+    //   padding-top: 2.5rem
   &__el
     &-title
       margin-bottom: 2.5rem
@@ -570,6 +575,9 @@
         max-width: 40ch
         margin: 0 auto
         margin-bottom: 5rem
+    + .action__el
+      @media screen and (min-width: 810px)
+        margin-top: 2.5rem
 
 .team
   margin: 10vh 0 15vh 0
@@ -620,6 +628,8 @@
         padding-left: 5vw
       .media
         @extend .relative
+        .img--cover
+          border-radius: 1rem
       &.lg, &.sm, &.md
         width: 72%
         min-width: 72vw
@@ -673,7 +683,31 @@
           margin-top: 1rem
         @media screen and (max-width: 810px)
           padding-left: 5%
-      
+
+.media
+  position: relative
+  // &:before
+  //   content: ''
+  //   @extend .absolute
+  //   top: 10%
+  //   bottom: 10%
+  //   left: 0
+  //   width: 100%
+  //   background-color: #E7EEF3
+  &__inner
+    @extend .grid-20
+    grid-row-gap: 2.5rem
+  &-title
+    position: relative
+    grid-column: 7/15
+    grid-row: 4/6
+    align-self: center
+    justify-self: center
+    z-index: 3
+  &-el
+    color: #fff
+    .img-holder
+      border-radius: 1.5rem
       
 .footer
   &__inner
