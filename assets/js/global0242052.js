@@ -206,7 +206,9 @@ t1.reversed(!0);
 
 
 
-const openNav = document.querySelector('#openNav');
+function myFunction(x) {
+  if (x.matches) { // If media query matches
+    const openNav = document.querySelector('#openNav');
 
 openNav.addEventListener('click', (function () {
     t2.isActive() || (t2.reversed(!t2.reversed()))
@@ -231,3 +233,10 @@ t2.fromTo('.header-nav', 0.35, {
   delay: 0.275
 })
 t2.reversed(!0);
+  } else {
+    
+  }
+}
+var x = window.matchMedia("(max-width: 810px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction)
