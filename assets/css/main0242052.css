@@ -611,6 +611,16 @@ p {
   font-size: 0.75rem;
   margin-left: 0.5rem;
 }
+@media screen and (min-width: 810px) {
+  .header-extra__mt {
+    display: none;
+  }
+}
+@media screen and (max-width: 810px) {
+  .header-extra__mt {
+    display: block;
+  }
+}
 
 .donate {
   position: relative;
