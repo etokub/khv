@@ -1,0 +1,30 @@
+.footer
+  background-color: #F3F0EF
+  @media screen and (min-width: 810px)
+    padding-left: 10%
+    padding-right: 10%
+  @media screen and (max-width: 810px)
+    padding-left: 5%
+    padding-right: 5%
+  &__inner
+    @extend .grid
+    @media screen and (min-width: 810px)
+      grid-template-columns: 1fr 1fr 1fr
+      margin-top: 5rem
+    @media screen and (max-width: 810px)
+      grid-row-gap: 2.5rem
+      margin-top: 2.5rem
+  .title
+    @extend .deco-txt
+    margin-bottom: 1rem
+    opacity: .85
+    font-size: 85%
+  li
+    @extend .h4
+    @extend .uppercase
+    font-weight: 500
+    + li
+      @media screen and (min-width: 810px)
+        margin-top: .75rem
+      @media screen and (max-width: 810px)
+        margin-top: 1.25rem

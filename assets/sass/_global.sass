@@ -22,7 +22,7 @@
       padding-top: 70%
   &--h-16-9
     &:before
-      padding-top: 56.25%
+      padding-top: 65%
   &--full
     &:before
       padding-top: 100%
@@ -52,8 +52,11 @@ body
   font-family: "Manrope", sans-serif
   font-weight: 400
   font-size: 18px
-  color: #333
+  color: #123244
   // letter-spacing: .5px
+html
+  &.no-scroll
+    overflow: hidden
 
 #js-scroll
   height: 100vh
@@ -93,30 +96,33 @@ body
   color: #282315
 
 .h1, .h2, .h3, .h4, .h5, .h6
-  color: #000
   font-weight: 300
   line-height: 1.15
+  @media screen and (max-width: 810px)
+    font-weight: 400
 
 .h
   &1
-    font-size: calc(12px + (250 - 150) * ((100vw - 10px) / (1920 - 160)))
+    font-size: calc(12px + (250 - 135) * ((100vw - 10px) / (1920 - 160)))
     @extend .uppercase
     @media screen and (max-width: 810px)
       font-size: calc(12px + (250 - 100) * ((100vw - 10px) / (1920 - 160)))
   &2
     font-size: calc(12px + (250 - 200) * ((100vw - 10px) / (1920 - 160)))
     @media screen and (max-width: 810px)
-      font-size: calc(12px + (250 - 150) * ((100vw - 10px) / (1920 - 160)))
+      font-size: calc(12px + (250 - 140) * ((100vw - 10px) / (1920 - 160)))
   &3
     font-size: calc(12px + (250 - 215) * ((100vw - 10px) / (1920 - 160)))
     @media screen and (max-width: 810px)
-      font-size: calc(12px + (250 - 160) * ((100vw - 10px) / (1920 - 160)))
+      font-size: calc(12px + (250 - 170) * ((100vw - 10px) / (1920 - 160)))
   &4
     font-size: 125%
     @media screen and (max-width: 810px)
       font-size: calc(12px + (250 - 210) * ((100vw - 10px) / (1920 - 160)))
   &5
     font-size: 150%
+  &6
+    font-size: 125%
 
 p
   font-size: 100%
@@ -127,17 +133,14 @@ p
   &::before
     display: inline-block
     content: "●"
-    color: #123244
-    margin-right: .5rem
+    color: currentColor
+    margin-right: 0.15rem
     vertical-align: super
-    font-size: 50%
+    font-size: 40%
 
 .color
   &-accent
     color: #DCBD85
-    &::before
-      color: #DCBD85
-      
 
 @keyframes captions-text
   0%
@@ -173,23 +176,66 @@ p
   &-header
     margin-bottom: 2.5rem
     text-align: center
-
+  &-sizer
+    @media screen and (max-width: 810px)
+      padding-top: 5rem
+      padding-bottom: 3.25rem
+    @media screen and (min-width: 810px)
+      padding-top: 8.25rem
+      padding-bottom: 5.25rem
 .btn
   position: relative
   color: #282828
+  @extend .uppercase
+  @media screen and (max-width: 810px)
+    font-size: .85rem
+  @media screen and (min-width: 810px)
+    font-size: 1rem
   .inner
     position: relative
     z-index: 2
+  &-gnrl
+    position: relative
+    display: inline-flex
+    width: fit-content
+    padding: 1.25rem 2rem
+    border-radius: 3rem
+    letter-spacing: .5px
+    font-weight: 400
+    white-space: nowrap
+    // transition: color 200ms ease-in
+    z-index: 2
+    @media screen and (max-width: 810px)
+      padding: .75rem 1.25rem
+    @media screen and (min-width: 810px)
+      padding: 1.25rem 2rem
+    &:before
+      content: ''
+      @extend .tf
+      border-radius: 3rem
+      transform: scale(1)
+      background-color: #EFD7AD
+      transition: transform .3s cubic-bezier(.4,0,0,1)
+    &:hover
+      &::before
+        transform: scale(1.15)
+  &--colorLoop
+    &::before
+      animation: colorLoop 10s infinite
   &--circle
     position: relative
     display: flex
     align-items: center
     justify-content: center
     padding: 5%
+    width: 14rem
+    height: 14rem
     background-color: #E7EEF3
     border-radius: 50%
     margin: 1rem
     z-index: 3
+    @media screen and (max-width: 810px)
+      font-size: calc(12px + (250 - 170) * ((100vw - 10px) / (1920 - 160)))
     .inner
       &:before
         content: ''
@@ -199,7 +245,7 @@ p
         width: .75rem
         height: .75rem
         border-radius: 50%
-        background-color: #000
+        background-color: currentColor
     &:after, &:before
       content: ''
       @extend .tf
@@ -218,53 +264,41 @@ p
     &.--lg
       width: 25vw
       height: 25vw
+      @extend .h3
       @media screen and (max-width: 810px)
         width: 60vw
         height: 60vw
-  &--link
-    height: 60px
-    padding: 0 2.5rem
-    margin-top: 2.5rem
-  &--centered
-    display: block
-    margin-left: auto
-    margin-right: auto
-  &--no-mt
-    margin-top: 0
   &--double
     display: grid
     grid-template-columns: repeat(2, 1fr)
     border-radius: 50px
     border: 2px solid hsl(38, 67%, 81%, .75 )
-    .btn-link
-      height: 80px
-  &-bg
-    @extend .absolute
-    top: 2px
-    left: 2px
-    bottom: 2px
-    width: calc(50% + 2px)
-    border-radius: 50px
-    background-color: hsl(38, 67%, 81%, .75 )
-    transition: transform 400ms linear
-  &-link
-    position: relative
-    display: inline-flex
-    align-items: center
-    padding: 1rem 2.5rem
-    border-radius: 50px
-    letter-spacing: .5px
-    font-weight: 400
-    @extend .h6
-    transition: color 200ms ease-in
-    z-index: 2
-    &:hover
-      &::before
-        transform: scale(5)
-  &.on-left
-  &.on-right
-    .btn-bg
-      transform: translateX(100%)
+    .link
+      position: relative
+      display: flex
+      align-items: center
+      justify-content: center
+      text-align: center
+      z-index: 2
+      @media screen and (min-width: 810px)
+        padding: 0 2rem
+        height: 80px
+      @media screen and (max-width: 810px)
+        padding: 0 1rem
+        height: 60px
+    .bg
+      @extend .absolute
+      top: 2px
+      left: 2px
+      bottom: 2px
+      width: calc(50% + 2px)
+      border-radius: 50px
+      background-color: hsl(38, 67%, 81%, .75 )
+      transition: transform 400ms linear
+    &.on-left
+    &.on-right
+      .bg
+        transform: translateX(100%)
 
   
 .section-name
@@ -274,3 +308,41 @@ p
 .hidden-mbl
   @media screen and (max-width: 810px)
     display: none!important
+
+.smiley
+  animation-name: smiley
+  animation-duration: 10s
+  animation-timing-function: cubic-bezier(.455,.03,.515,.955)
+  animation-iteration-count: infinite
+  animation-direction: alternate
+  transform-origin: center center
+@keyframes smiley
+  0%
+    transform: rotate(-15deg)
+  5%
+    transform: rotate(25deg)
+  10%
+    transform: rotate(-10deg)
+  40%
+    transform: rotate(380deg)
+  50%
+    transform: rotate(330deg)
+  55%
+    transform: rotate(370deg)
+  80%
+    transform: rotate(-20deg)
+  90%
+    transform: rotate(30deg)
+  to
+    transform: rotate(-15deg)
+
+@keyframes colorLoop
+  0%
+    background-color: #DCBD85
+  33%
+    background-color: #B8DAE3
+  66%
+    background-color: #48A0B6
+  100% 
+    background-color: #DCBD85
+    
